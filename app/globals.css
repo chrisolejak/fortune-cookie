@@ -1,26 +1,79 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-noto-serif), serif;
+}
+
+/* Cookie crack animation */
+@keyframes crackLeft {
+  0% { transform: rotate(0deg) translateX(0); }
+  30% { transform: rotate(-3deg) translateX(-2px); }
+  60% { transform: rotate(-8deg) translateX(-12px) translateY(-4px); }
+  100% { transform: rotate(-25deg) translateX(-40px) translateY(-10px); }
+}
+
+@keyframes crackRight {
+  0% { transform: rotate(0deg) translateX(0); }
+  30% { transform: rotate(3deg) translateX(2px); }
+  60% { transform: rotate(8deg) translateX(12px) translateY(-4px); }
+  100% { transform: rotate(25deg) translateX(40px) translateY(-10px); }
+}
+
+@keyframes fortuneReveal {
+  0% { opacity: 0; transform: translateY(20px) scale(0.9); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: rotate(0deg); }
+  20% { transform: rotate(-4deg); }
+  40% { transform: rotate(4deg); }
+  60% { transform: rotate(-3deg); }
+  80% { transform: rotate(3deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes shimmer {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+.cookie-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.cookie-shake {
+  animation: shake 0.4s ease-in-out;
+}
+
+.cookie-left-crack {
+  animation: crackLeft 0.5s ease-out forwards;
+  transform-origin: right center;
+}
+
+.cookie-right-crack {
+  animation: crackRight 0.5s ease-out forwards;
+  transform-origin: left center;
+}
+
+.fortune-reveal {
+  animation: fortuneReveal 0.6s ease-out 0.3s both;
+}
+
+.shimmer {
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+/* Red lantern pattern background */
+.lantern-bg {
+  background-color: #8B0000;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(255,200,0,0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255,200,0,0.08) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(0,0,0,0.2) 0%, transparent 70%);
 }
